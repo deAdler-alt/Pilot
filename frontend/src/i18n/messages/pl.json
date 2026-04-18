@@ -1,0 +1,15 @@
+{
+  "app": {
+    "name": "BHPilot",
+    "tagline": "Szkolenia i egzaminy BHP oparte na scenariuszach"
+  },
+  "nav": {
+    "login": "Logowanie",
+    "trainee": "Kursant",
+    "trainer": "Trener",
+    "admin": "Administrator"
+  },
+  "common": {
+    "loading": "Ładowanie…"
+  }
+}
