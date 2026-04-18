@@ -1,26 +1,119 @@
 @import "tailwindcss";
 
+/*
+  BHPilot — design tokens (desktop / kiosk, stały motyw jasny + ciemny chrome).
+  Kolory: głęboki granat + teal (BHP / profesjonalizm), wysoki kontrast WCAG.
+*/
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bp-shell: #0b1220;
+  --bp-shell-border: #1e293b;
+  --bp-shell-muted: #94a3b8;
+  --bp-shell-active: #0f766e;
+  --bp-shell-hover: #111c2f;
+
+  --bp-surface: #ffffff;
+  --bp-surface-muted: #f1f5f9;
+  --bp-surface-subtle: #e8eef5;
+
+  --bp-default: #0f172a;
+  --bp-default-muted: #475569;
+  --bp-default-subtle: #94a3b8;
+
+  --bp-border: #e2e8f0;
+  --bp-border-strong: #cbd5e1;
+
+  --bp-brand: #0d9488;
+  --bp-brand-hover: #0f766e;
+  --bp-brand-muted: rgba(13, 148, 136, 0.14);
+  --bp-brand-foreground: #0b4742;
+
+  --bp-danger: #dc2626;
+  --bp-danger-hover: #b91c1c;
+
+  --bp-success: #059669;
+  --bp-success-muted: rgba(5, 150, 105, 0.12);
+  --bp-success-foreground: #065f46;
+
+  --bp-warning: #d97706;
+  --bp-warning-muted: rgba(217, 119, 6, 0.12);
+  --bp-warning-foreground: #92400e;
+
+  --bp-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --bp-shadow-card:
+    0 1px 2px rgba(15, 23, 42, 0.06), 0 12px 40px -24px rgba(15, 23, 42, 0.18);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-shell: var(--bp-shell);
+  --color-shell-border: var(--bp-shell-border);
+  --color-shell-muted: var(--bp-shell-muted);
+  --color-shell-active: var(--bp-shell-active);
+  --color-shell-hover: var(--bp-shell-hover);
+
+  --color-surface: var(--bp-surface);
+  --color-surface-muted: var(--bp-surface-muted);
+  --color-surface-subtle: var(--bp-surface-subtle);
+
+  --color-default: var(--bp-default);
+  --color-default-muted: var(--bp-default-muted);
+  --color-default-subtle: var(--bp-default-subtle);
+
+  --color-border: var(--bp-border);
+  --color-border-strong: var(--bp-border-strong);
+
+  --color-brand: var(--bp-brand);
+  --color-brand-hover: var(--bp-brand-hover);
+  --color-brand-muted: var(--bp-brand-muted);
+  --color-brand-foreground: var(--bp-brand-foreground);
+
+  --color-danger: var(--bp-danger);
+  --color-danger-hover: var(--bp-danger-hover);
+
+  --color-success: var(--bp-success);
+  --color-success-muted: var(--bp-success-muted);
+  --color-success-foreground: var(--bp-success-foreground);
+
+  --color-warning: var(--bp-warning);
+  --color-warning-muted: var(--bp-warning-muted);
+  --color-warning-foreground: var(--bp-warning-foreground);
+
+  --shadow-xs: var(--bp-shadow);
+  --shadow-card: var(--bp-shadow-card);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-color: var(--bp-border);
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  html {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100%;
+    font-family: var(--font-sans);
+    background: var(--bp-surface-muted);
+    color: var(--bp-default);
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: var(--bp-brand-muted);
+    color: var(--bp-default);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--bp-brand);
+    outline-offset: 2px;
+  }
 }

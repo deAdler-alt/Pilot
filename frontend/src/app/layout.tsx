@@ -14,8 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BHPilot",
-  description: "Szkolenia i egzaminy BHP z wykorzystaniem AI",
+  title: {
+    default: "BHPilot",
+    template: "%s · BHPilot",
+  },
+  description: "Szkolenia i egzaminy BHP z wykorzystaniem AI — aplikacja dla organizacji.",
+  robots: { index: false, follow: false },
 };
 
 export default function RootLayout({
@@ -28,7 +32,7 @@ export default function RootLayout({
       lang="pl"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-zinc-50 text-zinc-900">
+      <body className="min-h-full flex flex-col bg-surface-muted text-default">
         {children}
       </body>
     </html>
